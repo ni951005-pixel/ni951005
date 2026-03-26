@@ -41,6 +41,19 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 20px;
             margin-bottom: 30px;
+            display: flex; /* 使用 flexbox 讓圖片和文字並排 */
+            flex-direction: column; /* 預設為垂直，手機版適用 */
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* 圓形照片 */
+            object-fit: cover; /* 確保圖片不變形 */
+            border: 5px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         h1 { margin: 0; color: var(--primary-color); letter-spacing: 2px; }
@@ -106,15 +119,30 @@
         @media (max-width: 600px) {
             .info-grid { grid-template-columns: 1fr; }
         }
+
+        /* 桌面版讓圖片在左，文字在右 */
+        @media (min-width: 601px) {
+            header {
+                flex-direction: row; 
+                text-align: left;
+                justify-content: center;
+            }
+            .header-text {
+                flex: 1; /* 讓文字區域佔用剩餘空間 */
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1 id="name">您的姓名</h1>
-            <p class="student-id">亞洲大學 | 學號：114022049</p>
-            <p>📍 台中市霧峰區柳豐路500號</p>
+           <img src="940a82c5-3567-4585-a3ad-5d050d803c81.jpg" alt="個人照片" class="profile-pic">
+    <div class="header-text">
+        <h1 id="name">您的姓名</h1>
+        <p class="student-id">亞洲大學 | 學號：114022049</p>
+        <p>📍 台中市霧峰區柳豐路500號</p>
+    </div>
         </header>
 
         <section>
