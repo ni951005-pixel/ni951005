@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷 - 114022049</title>
+    <style>
+        /* CSS 樣式設定 */
+        :root {
+            --primary-color: #a52a2a; /* 亞大紅磚色調 */
+            --secondary-color: #333;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--secondary-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px 0;
+            background: var(--card-bg);
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-top: 10px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; color: var(--primary-color); letter-spacing: 2px; }
+        .student-id { color: #777; font-size: 1.1em; }
+
+        section { margin-bottom: 30px; }
+        h2 { 
+            border-left: 5px solid var(--primary-color); 
+            padding-left: 15px; 
+            font-size: 1.5em; 
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #eee;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .experience-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        /* 按鈕互動 */
+        .btn-contact {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="name">您的姓名</h1>
+            <p class="student-id">亞洲大學 | 學號：114022049</p>
+            <p>📍 台中市霧峰區柳豐路500號</p>
+        </header>
+
+        <section>
+            <h2>基本資料</h2>
+            <div class="info-grid">
+                <div><strong>系所：</strong> 資訊電機學院 / 管理學院 (請修改)</div>
+                <div><strong>信箱：</strong> 114022049@asia.edu.tw</div>
+                <div><strong>電話：</strong> 0912-345-678</div>
+                <div><strong>語言：</strong> 中文、英文</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>專業技能</h2>
+            <div id="skills">
+                <span class="skill-tag">Python 程式設計</span>
+                <span class="skill-tag">HTML / CSS</span>
+                <span class="skill-tag">數據分析</span>
+                <span class="skill-tag">專案管理</span>
+                <span class="skill-tag">團隊協作</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>求學經歷 / 社團活動</h2>
+            <div class="experience-item">
+                <strong>亞洲大學 - 學生</strong> (2025 - 至今)
+                <p>專注於專業領域課程，並參與校內專題研究...</p>
+            </div>
+            <div class="experience-item">
+                <strong>校內社團 - 幹部</strong> (2025)
+                <p>負責活動企劃與跨部門溝通，成功舉辦過大型校園活動。</p>
+            </div>
+        </section>
+
+        <button class="btn-contact" onclick="contactMe()">聯絡我</button>
+
+        <div class="footer">
+            © 2026 Asia University Student Resume - 114022049
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 互動
+        function contactMe() {
+            alert("感謝您的點擊！這是一個範例按鈕。\n目前的學號紀錄為：114022049");
+            console.log("聯絡按鈕被觸發");
+        }
+
+        // 簡單的動態效果：當頁面加載時顯示歡迎詞
+        window.onload = () => {
+            const name = document.getElementById('name').innerText;
+            console.log(name + " 的履歷已加載完成");
+        };
+    </script>
+</body>
+</html>
