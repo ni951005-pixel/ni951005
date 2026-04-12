@@ -2,45 +2,75 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人履歷 - 114022049</title>
     <style>
-        body { font-family: "Microsoft JhengHei", sans-serif; background: #f4f4f9; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .container { max-width: 900px; width: 100%; background: white; display: flex; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
-        .sidebar { width: 280px; background: #f8f9fa; padding: 40px 20px; border-right: 1px solid #eee; text-align: center; }
+        :root { --primary: #a52a2a; --bg: #f4f4f9; }
+        body { font-family: "Microsoft JhengHei", sans-serif; background: var(--bg); margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { max-width: 950px; width: 100%; background: white; display: flex; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; position: relative; }
+        .sidebar { width: 300px; background: #f8f9fa; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #eee; }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 25px; }
         .main { flex: 1; padding: 40px; }
-        .profile-pic { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #a52a2a; margin: 10px 0; }
-        h2 { border-left: 5px solid #a52a2a; padding-left: 10px; color: #333; }
-        .skill { display: inline-block; background: #eee; padding: 5px 10px; margin: 3px; border-radius: 5px; font-size: 14px; }
-        @media (max-width: 700px) { .container { flex-direction: column; } .sidebar { width: auto; } }
+        h1 { color: var(--primary); margin: 0; font-size: 28px; }
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 30px; color: #333; }
+        .skill-tag { display: inline-block; background: #eee; padding: 6px 12px; margin: 5px; border-radius: 20px; font-size: 14px; }
+        .music-btn { position: absolute; top: 20px; right: 20px; background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 30px; cursor: pointer; z-index: 10; font-weight: bold; }
+        @media (max-width: 768px) { .container { flex-direction: column; } .sidebar { width: auto; border-right: none; } }
     </style>
 </head>
 <body>
+
+    <audio id="bgMusic" src="bgm.mp3" loop muted></audio>
+    
     <div class="container">
-        <div class="sidebar">
+        <button class="music-btn" onclick="toggleMusic()" id="mBtn">🔇 播放音樂</button>
+
+        <aside class="sidebar">
             <img src="940a82c5-3567-4585-a3ad-5d050d803c81.jpg" class="profile-pic">
             <h1>您的姓名</h1>
             <p>亞洲大學 | 114022049</p>
             <p>📍 台中市霧峰區柳豐路500號</p>
-        </div>
-        <div class="main">
+            <p>📧 114022049@asia.edu.tw</p>
+        </aside>
+
+        <main class="main">
             <section>
                 <h2>基本資料</h2>
-                <p>系所：資訊電機學院</p>
-                <p>信箱：114022049@asia.edu.tw</p>
+                <p><strong>系所：</strong> 資訊電機學院 / 管理學院</p>
+                <p><strong>電話：</strong> 0912-345-678</p>
+                <p><strong>語言：</strong> 中文、英文</p>
             </section>
             <section>
                 <h2>專業技能</h2>
-                <div class="skill">Python 程式設計</div>
-                <div class="skill">HTML / CSS</div>
-                <div class="skill">數據分析</div>
+                <div class="skill-tag">Python 程式設計</div>
+                <div class="skill-tag">HTML / CSS</div>
+                <div class="skill-tag">數據分析</div>
+                <div class="skill-tag">專案管理</div>
+                <div class="skill-tag">團隊協作</div>
             </section>
             <section>
-                <h2>求學經歷</h2>
-                <p>亞洲大學 - 學生 (2025 - 至今)</p>
+                <h2>求學經歷 / 社團活動</h2>
+                <p><strong>亞洲大學 - 學生</strong> (2025 - 至今)</p>
+                <p>專注於專業領域課程，並參與校內專題研究。</p>
             </section>
-        </div>
+        </main>
     </div>
+
+    <script>
+        function toggleMusic() {
+            var m = document.getElementById("bgMusic");
+            var b = document.getElementById("mBtn");
+            if (m.muted) {
+                m.muted = false; m.play(); b.innerHTML = "🔊 停止音樂";
+            } else {
+                m.muted = true; b.innerHTML = "🔇 播放音樂";
+            }
+        }
+        // 點擊頁面任何地方嘗試播放
+        document.body.addEventListener('click', function() {
+            var m = document.getElementById("bgMusic");
+            if (m.paused && !m.muted) { m.play(); }
+        }, { once: true });
+    </script>
 </body>
-</html>
 </html>
